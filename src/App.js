@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
+import Add from "./Pages/Add";
+import Edit from "./Pages/Edit";
+import Error from "./Pages/Error";
+import NavBar from "./Components/NavBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<NavBar />
+			<h1>MERN APP</h1>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/contact' element={<Contact />} />
+				<Route path='/add' element={<Add />} />
+				<Route path='/edit/:id' element={<Edit />} />
+				<Route path='/*' element={<Error />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
